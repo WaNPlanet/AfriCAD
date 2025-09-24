@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AfriCAD</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+      /* Global Section Padding */
+      .section-grey,
+      .section-white {
+        padding: 5rem 0;
+      }
+
+      /* Custom Hero Badge */
+      .gradient-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        background: linear-gradient(135deg, hsl(200 100% 64%) 0%, hsl(200 100% 50%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border: 2px solid hsl(200 100% 55%);
+      }
+
+      .hero-section {
+        background-color: #e5e7eb;
+        text-align: center;
+        color: #111827;
+        padding: 5rem 2rem;
+      }
+
+      .hero-title span {
+        color: #374151;
+      }
+
+      .hero-btn {
+        border-radius: 50px;
+        font-weight: 500;
+      }
+
+      /* Alternating sections */
+      .section-grey {
+        background-color: #f9fafb;
+      }
+      .section-white {
+        background-color: #ffffff;
+      }
+
+      /* Impact Section */
+      .impact h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: hsl(200 100% 45%);
+      }
+
+      /* Core Values Cards */
+      .value-card {
+        border: none;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .value-card img {
+        width: 60px;
+      }
+      .value-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      }
+
+      /* Founder */
+      .founder-card {
+        border-radius: 12px;
+        border: none;
+      }
+      
+      /* Mission & Vision Cards */
+      .mission-vision-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        padding: 30px 25px;
+        height: 100%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .mission-vision-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+      }
+      
+      .mission-card:before {
+        background: linear-gradient(to right, #3498db, #2c3e50);
+      }
+      
+      .vision-card:before {
+        background: linear-gradient(to right, #2c3e50, #3498db);
+      }
+      
+      .mission-vision-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+      
+      .mission-vision-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+      }
+      
+      /* Enhanced Core Values */
+      .core-values-section {
+        background-color: #fff;
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 700;
+        color: #2c3e50;
+        position: relative;
+      }
+      
+      .section-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+        margin: 15px auto;
+        border-radius: 2px;
+      }
+      
+      .section-subtitle {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      
+      .value-card-enhanced {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        padding: 30px 25px;
+        height: 100%;
+        text-align: center;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .value-card-enhanced:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+      }
+      
+      .value-card-enhanced:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+      
+      .icon-container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 25px;
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2.5rem;
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        transition: all 0.3s ease;
+      }
+      
+      .value-card-enhanced:hover .icon-container {
+        transform: scale(1.1);
+      }
+      
+      .value-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+      
+      .value-description {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      
+      /* Impact Numbers */
+      .impact-number {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #2c3e50;
+        margin: 10px 0;
+        line-height: 1;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .impact-label {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        font-weight: 600;
+      }
+      
+      /* Footer spacing */
+      .footer {
+        background-color: #ffffff;
+      }
+      
+      @media (max-width: 992px) {
+        .value-card-enhanced {
+          margin-bottom: 25px;
+        }
+        
+        .icon-container {
+          width: 80px;
+          height: 80px;
+          font-size: 2rem;
+        }
+        
+        .impact-number {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">AfriCAD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+            <li class="nav-item"><a class="nav-link me-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link  me-3" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link  me-3" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link active me-3" href="teaching.html">Teaching</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="Q&A.html">Q&A</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="Contact.html">Contact</a></li>
+          </ul>
+          <button type="button" class="btn btn-primary px-4">Get Started</button>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+
+        <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <p class="gradient-badge mb-3">Learning Platform</p>
+        <h1 class="hero-title fw-bold mb-4">
+            Interactive Learning Hub 
+        </h1>
+
+        <p class="hero-subtitle mb-5">
+          AfriCAD is a leading online platform dedicated to providing world-class CAD/CAM
+           training to <br>students and professionals across Africa. We bridge the skills gap in technical education.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="section-grey" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f9fafb;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card feature-card h-100 p-5">
+          <div class="text-center mb-4">
+            <h2 class="section-title fw-bold">Video Upload</h2>
+            <p class="section-subtitle">Upload your CAD project videos for instructor review and feedback</p>
+          </div>
+          <div class="text-center mb-4">
+            <i class="bi bi-upload" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h3 class="fw-bold mb-4 text-center">Upload Your Project Video</h3>
+          <div class="upload-area text-center p-4 mb-4" style="border: 2px dashed #3498db; border-radius: 12px; background: #f8f9fa;">
+            <p class="mb-0">Drag and drop your video file here, or click to browse</p>
+            <input type="file" accept=".mp4,.avi,.mov" class="form-control mt-3" style="max-width: 300px; margin: 0 auto;">
+            <p class="text-muted mt-2">Supported formats: MP4, AVI, MOV (Max size: 100MB)</p>
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="videoTitle" class="form-label">Video Title</label>
+              <input type="text" class="form-control" id="videoTitle" placeholder="Enter video title">
+            </div>
+            <div class="mb-3">
+              <label for="courseSelect" class="form-label">Course</label>
+              <select class="form-select" id="courseSelect">
+                <option selected>Select course</option>
+                <option>AutoCAD Fundamentals</option>
+                <option>Fusion 360 Complete</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="videoDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="videoDescription" rows="4" placeholder="Describe your project and any specific areas you'd like feedback on"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Submit Video</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .upload-area:hover {
+    background: #e9ecef;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .feature-card {
+      margin-bottom: 25px;
+    }
+  }
+</style>
+
+<section class="section-grey" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f9fafb;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card feature-card h-100 p-5">
+          <div class="text-center mb-4">
+            <i class="bi bi-question-circle" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h2 class="section-title fw-bold text-center mb-3">Knowledge Quiz</h2>
+          <p class="section-subtitle text-center mb-4">Test your CAD/CAM knowledge with our interactive quiz</p>
+          <h3 class="fw-bold mb-3 text-center">CAD/CAM Fundamentals Quiz</h3>
+          <p class="text-center mb-4">Answer all questions to see your score</p>
+          <form>
+            <div class="mb-4">
+              <p class="fw-semibold">1. What is the primary purpose of layers in AutoCAD?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q1" id="q1a">
+                <label class="form-check-label" for="q1a">To change colors only</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q1" id="q1b">
+                <label class="form-check-label" for="q1b">To organize and manage drawing objects</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q1" id="q1c">
+                <label class="form-check-label" for="q1c">To create 3D models</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q1" id="q1d">
+                <label class="form-check-label" for="q1d">To print drawings</label>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="fw-semibold">2. Which command is used to create a circle in AutoCAD?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q2" id="q2a">
+                <label class="form-check-label" for="q2a">LINE</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q2" id="q2b">
+                <label class="form-check-label" for="q2b">CIRCLE</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q2" id="q2c">
+                <label class="form-check-label" for="q2c">ARC</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q2" id="q2d">
+                <label class="form-check-label" for="q2d">POLYLINE</label>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="fw-semibold">3. What does CAM stand for?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q3" id="q3a">
+                <label class="form-check-label" for="q3a">Computer Aided Manufacturing</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q3" id="q3b">
+                <label class="form-check-label" for="q3b">Computer Aided Modeling</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q3" id="q3c">
+                <label class="form-check-label" for="q3c">Computer Aided Mapping</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q3" id="q3d">
+                <label class="form-check-label" for="q3d">Computer Aided Management</label>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="fw-semibold">4. In Fusion 360, what is a parametric model?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q4" id="q4a">
+                <label class="form-check-label" for="q4a">A model that cannot be changed</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q4" id="q4b">
+                <label class="form-check-label" for="q4b">A model with constraints and dimensions that can be modified</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q4" id="q4c">
+                <label class="form-check-label" for="q4c">A model made only of surfaces</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q4" id="q4d">
+                <label class="form-check-label" for="q4d">A model without history</label>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="fw-semibold">5. What is the main advantage of cloud-based CAD software?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q5" id="q5a">
+                <label class="form-check-label" for="q5a">Faster processing</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q5" id="q5b">
+                <label class="form-check-label" for="q5b">Better graphics</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q5" id="q5c">
+                <label class="form-check-label" for="q5c">Collaboration and accessibility</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="q5" id="q5d">
+                <label class="form-check-label" for="q5d">Lower cost</label>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Submit Quiz</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .feature-card {
+      margin-bottom: 25px;
+    }
+  }
+</style>
+<section class="section-grey" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f9fafb;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card feature-card h-100 p-5">
+          <div class="text-center mb-4">
+            <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h2 class="section-title fw-bold text-center mb-3">Assignment Submission</h2>
+          <p class="section-subtitle text-center mb-4">Submit your assignment text or project description for review</p>
+          <form>
+            <div class="mb-3">
+              <label for="assignmentTitle" class="form-label">Assignment Title</label>
+              <input type="text" class="form-control" id="assignmentTitle" placeholder="Enter assignment title">
+            </div>
+            <div class="mb-3">
+              <label for="courseSelect" class="form-label">Course</label>
+              <select class="form-select" id="courseSelect">
+                <option selected>Select course</option>
+                <option>AutoCAD Fundamentals</option>
+                <option>Fusion 360 Complete</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="assignmentDescription" class="form-label">Your Submission</label>
+              <textarea class="form-control" id="assignmentDescription" rows="6" placeholder="Enter your assignment text, project description, or answers here..."></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Submit Assignment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .feature-card {
+      margin-bottom: 25px;
+    }
+  }
+</style>
+  <footer class="footer" style="margin-top: 0;">
+        <div class="container" style="padding-left: 0.25rem; padding-right: 0.25rem;">
+          <div class="row g-4 g-lg-5 align-items-start">
+            <!-- Brand / About -->
+            <div class="col-lg-4 col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <span class="brand-name ms-2 fw-bold fs-4">AfriCAD</span>
+              </div>
+              <p class="mb-2">
+                Empowering Africa with professional CAD/CAM training and education.
+              </p>
+              <p class="mb-0">
+                Learn industry-standard software and advance your technical skills.
+              </p>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-lg-3 col-md-6">
+              <h5 class="footer-heading">Quick Links</h5>
+              <ul class="list-unstyled footer-links mb-0">
+                <li class="mb-2"><a href="#">Home</a></li>
+                <li class="mb-2"><a href="#">About</a></li>
+                <li class="mb-2"><a href="#">Services</a></li>
+                <li class="mb-2"><a href="#">Teaching</a></li>
+                <li class="mb-2"><a href="#">Q&amp;A</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+              <h5 class="footer-heading">Contact</h5>
+              <ul class="list-unstyled footer-links mb-0">
+                <li class="icon-li mb-2">
+                  <i class="bi bi-telephone"></i>
+                  <a href="tel:+233543830824">+233 543830824</a>
+                </li>
+                <li class="icon-li mt-2">
+                  <i class="bi bi-envelope"></i>
+                  <a href="mailto:africad631@gmail.com">africad631@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Follow Us -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="footer-heading">Follow Us</h5>
+              <div class="d-flex gap-2">
+                <a class="social-btn" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a class="social-btn" href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a class="social-btn" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a class="social-btn" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <hr class="my-4">
+          <!-- Bottom Bar -->
+          <div class="pt-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+              <p class="mb-0 text-secondary">
+                © <span id="africadYear">2025</span> AfriCAD. All rights reserved.
+              </p>
+              <div class="bottom-links d-flex gap-3">
+                <a href="#" class="text-secondary text-decoration-none">Privacy Policy</a>
+                <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+     </body>
+     </html>

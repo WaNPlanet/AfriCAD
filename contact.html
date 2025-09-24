@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AfriCAD</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+      /* Global Section Padding */
+      .section-grey,
+      .section-white {
+        padding: 5rem 0;
+      }
+
+      /* Custom Hero Badge */
+      .gradient-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        background: linear-gradient(135deg, hsl(200 100% 64%) 0%, hsl(200 100% 50%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border: 2px solid hsl(200 100% 55%);
+      }
+
+      .hero-section {
+        background-color: #e5e7eb;
+        text-align: center;
+        color: #111827;
+        padding: 5rem 2rem;
+      }
+
+      .hero-title span {
+        color: #374151;
+      }
+
+      .hero-btn {
+        border-radius: 50px;
+        font-weight: 500;
+      }
+
+      /* Alternating sections */
+      .section-grey {
+        background-color: #f9fafb;
+      }
+      .section-white {
+        background-color: #ffffff;
+      }
+
+      /* Impact Section */
+      .impact h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: hsl(200 100% 45%);
+      }
+
+      /* Core Values Cards */
+      .value-card {
+        border: none;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .value-card img {
+        width: 60px;
+      }
+      .value-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      }
+
+      /* Founder */
+      .founder-card {
+        border-radius: 12px;
+        border: none;
+      }
+      
+      /* Mission & Vision Cards */
+      .mission-vision-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        padding: 30px 25px;
+        height: 100%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .mission-vision-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+      }
+      
+      .mission-card:before {
+        background: linear-gradient(to right, #3498db, #2c3e50);
+      }
+      
+      .vision-card:before {
+        background: linear-gradient(to right, #2c3e50, #3498db);
+      }
+      
+      .mission-vision-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+      
+      .mission-vision-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+      }
+      
+      /* Enhanced Core Values */
+      .core-values-section {
+        background-color: #fff;
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 700;
+        color: #2c3e50;
+        position: relative;
+      }
+      
+      .section-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+        margin: 15px auto;
+        border-radius: 2px;
+      }
+      
+      .section-subtitle {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      
+      .value-card-enhanced {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        padding: 30px 25px;
+        height: 100%;
+        text-align: center;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .value-card-enhanced:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+      }
+      
+      .value-card-enhanced:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+      
+      .icon-container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 25px;
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2.5rem;
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        transition: all 0.3s ease;
+      }
+      
+      .value-card-enhanced:hover .icon-container {
+        transform: scale(1.1);
+      }
+      
+      .value-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+      
+      .value-description {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      
+      /* Impact Numbers */
+      .impact-number {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #2c3e50;
+        margin: 10px 0;
+        line-height: 1;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .impact-label {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        font-weight: 600;
+      }
+      
+      /* Footer spacing */
+      .footer {
+        background-color: #ffffff;
+      }
+      
+      @media (max-width: 992px) {
+        .value-card-enhanced {
+          margin-bottom: 25px;
+        }
+        
+        .icon-container {
+          width: 80px;
+          height: 80px;
+          font-size: 2rem;
+        }
+        
+        .impact-number {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">AfriCAD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+            <li class="nav-item"><a class="nav-link me-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link  me-3" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link  me-3" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="teaching.html">Teaching</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="Q&A.html">Q&A</a></li>
+            <li class="nav-item"><a class="nav-link active me-3" href="Contact.html">Contact</a></li>
+          </ul>
+          <button type="button" class="btn btn-primary px-4">Get Started</button>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+        <!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <p class="gradient-badge mb-3">Contact AfriCAD</p>
+    <h1 class="hero-title fw-bold mb-4">Get In Touch</h1>
+    <p class="hero-subtitle mb-5">
+      Have questions about our courses or need support? We're here to help! Reach out to our team and <br> we'll get back to you promptly.
+    </p>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .hero-section {
+    background-color: #e5e7eb;
+    text-align: center;
+    color: #111827;
+    padding: 5rem 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .gradient-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(135deg, hsl(200 100% 64%) 0%, hsl(200 100% 50%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid hsl(200 100% 55%);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+    <section class="section-grey">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold">Send us a Message</h2>
+      <p class="section-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+    </div>
+    <div class="row justify-content-center g-4">
+      <!-- Contact Form (Left) -->
+      <div class="col-lg-6">
+        <div class="card feature-card h-100 p-5">
+          <div class="text-center mb-4">
+            <i class="bi bi-envelope" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="name" placeholder="Your full name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" placeholder="What is this regarding?">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Find Us and Common Topics (Right) -->
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <!-- Find Us Card -->
+          <div class="col-12">
+            <div class="card feature-card h-100 p-5">
+              <div class="text-center mb-4">
+                <i class="bi bi-geo-alt" style="font-size: 3rem; color: #3498db;"></i>
+              </div>
+              <h3 class="fw-bold text-center mb-3">Find Us</h3>
+              <p class="text-center mb-4">Accra, Ghana</p>
+              <div class="map-placeholder text-center p-4" style="border: 2px dashed #3498db; border-radius: 12px; background: #f8f9fa;">
+                <p class="mb-0 text-muted">Interactive map will be displayed here</p>
+              </div>
+            </div>
+          </div>
+          <!-- Common Topics Card -->
+          <div class="col-12">
+            <div class="card feature-card h-100 p-5">
+              <div class="text-center mb-4">
+                <i class="bi bi-question-circle" style="font-size: 3rem; color: #3498db;"></i>
+              </div>
+              <h3 class="fw-bold text-center mb-3">Common Topics</h3>
+              <p class="text-center mb-4">Quick links to frequently asked topics</p>
+              <div class="d-flex flex-column gap-2">
+                <a href="#" class="btn btn-outline-primary">Course Information</a>
+                <a href="#" class="btn btn-outline-primary">Technical Support</a>
+                <a href="#" class="btn btn-outline-primary">Enrollment Help</a>
+                <a href="#" class="btn btn-outline-primary">Certification Questions</a>
+                <a href="#" class="btn btn-outline-primary">Partnership Opportunities</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .section-grey {
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+    background-color: #f9fafb;
+  }
+
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  .map-placeholder:hover {
+    background: #e9ecef;
+  }
+
+  @media (max-width: 992px) {
+    .feature-card {
+      margin-bottom: 25px;
+    }
+  }
+</style>
+
+<section class="section-grey">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold">We're Here When You Need Us</h2>
+    </div>
+    <div class="row justify-content-center g-4">
+      <!-- Response Time Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card feature-card h-100 p-5 text-center">
+          <div class="mb-4">
+            <i class="bi bi-clock" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h3 class="fw-bold mb-3">Response Time</h3>
+          <p class="text-muted" style="font-size: 1.1rem;">We typically respond to all inquiries within 24 hours during business days.</p>
+        </div>
+      </div>
+      <!-- Support Hours Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card feature-card h-100 p-5 text-center">
+          <div class="mb-4">
+            <i class="bi bi-calendar" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h3 class="fw-bold mb-3">Support Hours</h3>
+          <p class="text-muted" style="font-size: 1.1rem;">Monday - Friday: 9:00 AM - 6:00 PM (GMT)<br>Saturday: 10:00 AM - 2:00 PM (GMT)</p>
+        </div>
+      </div>
+      <!-- Emergency Support Card -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card feature-card h-100 p-5 text-center">
+          <div class="mb-4">
+            <i class="bi bi-telephone" style="font-size: 3rem; color: #3498db;"></i>
+          </div>
+          <h3 class="fw-bold mb-3">Emergency Support</h3>
+          <p class="text-muted" style="font-size: 1.1rem;">For urgent technical issues during courses, contact us directly via phone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #f9fafb;
+  }
+
+  .section-grey {
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+    background-color: #f9fafb;
+  }
+
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 992px) {
+    .feature-card {
+      margin-bottom: 25px;
+    }
+  }
+</style>
+
+  <footer class="footer" style="margin-top: 0;">
+        <div class="container" style="padding-left: 0.25rem; padding-right: 0.25rem;">
+          <div class="row g-4 g-lg-5 align-items-start">
+            <!-- Brand / About -->
+            <div class="col-lg-4 col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <span class="brand-name ms-2 fw-bold fs-4">AfriCAD</span>
+              </div>
+              <p class="mb-2">
+                Empowering Africa with professional CAD/CAM training and education.
+              </p>
+              <p class="mb-0">
+                Learn industry-standard software and advance your technical skills.
+              </p>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-lg-3 col-md-6">
+              <h5 class="footer-heading">Quick Links</h5>
+              <ul class="list-unstyled footer-links mb-0">
+                <li class="mb-2"><a href="#">Home</a></li>
+                <li class="mb-2"><a href="#">About</a></li>
+                <li class="mb-2"><a href="#">Services</a></li>
+                <li class="mb-2"><a href="#">Teaching</a></li>
+                <li class="mb-2"><a href="#">Q&amp;A</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+              <h5 class="footer-heading">Contact</h5>
+              <ul class="list-unstyled footer-links mb-0">
+                <li class="icon-li mb-2">
+                  <i class="bi bi-telephone"></i>
+                  <a href="tel:+233543830824">+233 543830824</a>
+                </li>
+                <li class="icon-li mt-2">
+                  <i class="bi bi-envelope"></i>
+                  <a href="mailto:africad631@gmail.com">africad631@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Follow Us -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="footer-heading">Follow Us</h5>
+              <div class="d-flex gap-2">
+                <a class="social-btn" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a class="social-btn" href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a class="social-btn" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a class="social-btn" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <hr class="my-4">
+          <!-- Bottom Bar -->
+          <div class="pt-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+              <p class="mb-0 text-secondary">
+                © <span id="africadYear">2025</span> AfriCAD. All rights reserved.
+              </p>
+              <div class="bottom-links d-flex gap-3">
+                <a href="#" class="text-secondary text-decoration-none">Privacy Policy</a>
+                <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+     </body>
+     </html>

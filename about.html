@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AfriCAD</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+      /* Global Section Padding */
+      .section-grey,
+      .section-white {
+        padding: 5rem 0;
+      }
+
+      /* Custom Hero Badge */
+      .gradient-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        background: linear-gradient(135deg, hsl(200 100% 64%) 0%, hsl(200 100% 50%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border: 2px solid hsl(200 100% 55%);
+      }
+
+      .hero-section {
+        background-color: #e5e7eb;
+        text-align: center;
+        color: #111827;
+        padding: 5rem 2rem;
+      }
+
+      .hero-title span {
+        color: #374151;
+      }
+
+      .hero-btn {
+        border-radius: 50px;
+        font-weight: 500;
+      }
+
+      /* Alternating sections */
+      .section-grey {
+        background-color: #f9fafb;
+      }
+      .section-white {
+        background-color: #ffffff;
+      }
+
+      /* Impact Section */
+      .impact h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: hsl(200 100% 45%);
+      }
+
+      /* Feature Card (from index.html for Core Values) */
+      .feature-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: #f8f9fa;
+      }
+
+      /* Mission & Vision Cards */
+      .mission-vision-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        padding: 30px 25px;
+        height: 100%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mission-vision-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+      }
+       .feature-card, .software-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .feature-card:hover, .software-card:hover {
+        transform: translateY(-4px);
+      }
+      
+      .feature-icon, .software-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: #f8f9fa;
+      }
+
+      .mission-card:before {
+        background: linear-gradient(to right, #3498db, #2c3e50);
+      }
+
+      .vision-card:before {
+        background: linear-gradient(to right, #2c3e50, #3498db);
+      }
+
+      .mission-vision-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+
+      .mission-vision-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+      }
+
+      /* Footer (from index.html) */
+      .footer {
+        background: #f8f9fa;
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-heading {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .footer-links a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #47c2ff;
+      }
+
+      .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-btn:hover {
+        background: #47c2ff;
+        color: white;
+      }
+
+      /* Impact Numbers */
+      .impact-number {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #2c3e50;
+        margin: 10px 0;
+        line-height: 1;
+        background: linear-gradient(to right, #3498db, #2c3e50);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .impact-label {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        font-weight: 600;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .feature-card {
+          margin-bottom: 25px;
+        }
+
+        .impact-number {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top" style="margin-bottom: 0;">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">AfriCAD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+            <li class="nav-item"><a class="nav-link me-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active me-3" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="teaching.html">Teaching</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="Q&A.html">Q&A</a></li>
+            <li class="nav-item"><a class="nav-link me-3" href="Contact.html">Contact</a></li>
+          </ul>
+          <button type="button" class="btn btn-primary px-4">Get Started</button>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <p class="gradient-badge mb-3">Professional CAD Training</p>
+        <h1 class="hero-title fw-bold mb-4">
+          Empowering Africa with  <span style="color: hsl(200 100% 45%);">Professional <br> CAD Training</span>
+        </h1>
+        <p class="hero-subtitle mb-5">
+          AfriCAD is a leading online platform dedicated to providing world-class CAD/CAM
+           training to <br>students and professionals across Africa. We bridge the skills gap in technical education.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section-white">
+      <div class="container">
+      
+        <div class="row g-4">
+          <!-- Mission -->
+          <div class="col-lg-6">
+            <div class="mission-vision-card mission-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="mission-vision-icon me-3">
+                  <i class="bi bi-bullseye"></i>
+                </div>
+                
+              </div>
+              <h3 class="fw-semibold mb-0">Our Mission</h3>
+              <br>
+              <p class="mb-0">
+                To democratize access to professional CAD/CAM education across Africa by providing 
+                high-quality, affordable, and practical training that empowers individuals to excel in 
+                their technical careers and contribute to Africa's technological advancement.
+              </p>
+            </div>
+          </div>
+          <!-- Vision -->
+          <div class="col-lg-6">
+            <div class="mission-vision-card vision-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="mission-vision-icon me-3">
+                  <i class="bi bi-eye"></i>
+                </div>
+                
+              </div>
+              <h3 class="fw-semibold mb-0">Our Vision</h3>
+              <br>
+              <p class="mb-0">
+                To become Africa's premier CAD/CAM education platform, creating a generation of skilled 
+                professionals who will drive innovation in engineering, architecture, manufacturing, 
+                and design across the continent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Impact Section -->
+    <section class="section-grey mb-5">
+      <div class="container text-center">
+        <h2 class="section-title">Our Impact</h2>
+        <p class="section-subtitle">Numbers that speak to our commitment to excellence</p>
+        <div class="row g-4">
+          <div class="col-md-3 col-6">
+            <div class="impact-number">500+</div>
+            <div class="impact-label">Students Trained</div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="impact-number">50+</div>
+            <div class="impact-label">Courses Available</div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="impact-number">95%</div>
+            <div class="impact-label">Success Rate</div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="impact-number">10+</div>
+            <div class="impact-label">Expert Instructors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+<section class="core-values-section mb-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold">Our Core Values</h2>
+      <p class="section-subtitle">
+        The principles that guide everything we do
+      </p>
+    </div>
+    <div class="row g-4">
+      <!-- Excellence -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card feature-card h-100 p-4">
+          <div class="feature-icon">
+            <img src="logo.jpg" alt="Practical Skills" class="img-fluid" style="border-radius: 20px;">
+          </div>
+          <div class="card-body text-center px-0">
+            <h5 class="card-title mb-3 fw-bold">Excellence</h5>
+            <p class="card-text">We strive for the highest quality in CAD/CAM education, ensuring our students receive world-class training.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Community -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card feature-card h-100 p-4">
+          <div class="feature-icon">
+            <i class="bi bi-people" style="font-size: 2rem; color: #3498db;"></i>
+          </div>
+          <div class="card-body text-center px-0">
+            <h5 class="card-title mb-3 fw-bold">Community</h5>
+            <p class="card-text">Building a strong network of professionals who support and elevate each other across Africa.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Innovation -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card feature-card h-100 p-4">
+          <div class="feature-icon">
+            <i class="bi bi-lightbulb" style="font-size: 2rem; color: #3498db;"></i>
+          </div>
+          <div class="card-body text-center px-0">
+            <h5 class="card-title mb-3 fw-bold">Innovation</h5>
+            <p class="card-text">Embracing cutting-edge technology and modern teaching methods to deliver exceptional learning experiences.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Accessibility -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card feature-card h-100 p-4">
+          <div class="feature-icon">
+            <i class="bi bi-universal-access" style="font-size: 2rem; color: #3498db;"></i>
+          </div>
+          <div class="card-body text-center px-0">
+            <h5 class="card-title mb-3 fw-bold">Accessibility</h5>
+            <p class="card-text">Making high-quality CAD/CAM training available and affordable to everyone across Africa.</p>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+
+    <!-- Founder Section -->
+   <section class="section-grey" style=" display: flex; align-items: center; justify-content: center;">
+  <div class="container text-center">
+    <h2 class="section-title fw-bold">Meet Our Founder</h2>
+    <p class="section-subtitle py-2">Passionate about bringing world-class CAD education to Africa</p>
+    <br> <br>
+    <div class="card founder-card shadow-sm p-5 mx-auto" style="max-width: 1000px;">
+      <div class="row align-items-center g-4">
+        <div class="col-md-4 text-center">
+          <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto"
+               style="width: 200px; height: 200px; border: 8px solid #4cc9f0; font-size: 3rem; font-weight: bold; color: #4895ef;">
+            AF
+          </div>
+        </div>
+        <div class="col-md-8 text-md-start">
+          <h4 class="fw-bold" style="font-size: 2rem;">[Founder Name]</h4>
+          <p class="fw-semibold" style="font-size: 1.25rem; color:#4cc9f0;">Founder & Lead Instructor</p>
+          <p class="text-muted" style="font-size: 1.2rem;">
+            With over [X] years of CAD/CAM design experience, our founder established AfriCAD 
+            to bridge Africa's skills gap and empower the next generation of engineers and designers.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-light text-dark px-3 py-2" style="font-size: 1rem;">CAD Expert</span>
+            <span class="badge bg-light text-dark px-3 py-2" style="font-size: 1rem;">Certified Instructor</span>
+            <span class="badge bg-light text-dark px-3 py-2" style="font-size: 1rem;">Industry Professional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 0;">
+      <div class="container" style="padding-left: 0.25rem; padding-right: 0.25rem;">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <!-- Brand / About -->
+          <div class="col-lg-4 col-md-6">
+            <div class="d-flex align-items-center mb-3">
+              <span class="brand-name ms-2 fw-bold fs-4">AfriCAD</span>
+            </div>
+            <p class="mb-2">
+              Empowering Africa with professional CAD/CAM training and education.
+            </p>
+            <p class="mb-0">
+              Learn industry-standard software and advance your technical skills.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Quick Links</h5>
+            <ul class="list-unstyled footer-links mb-0">
+              <li class="mb-2"><a href="#">Home</a></li>
+              <li class="mb-2"><a href="#">About</a></li>
+              <li class="mb-2"><a href="#">Services</a></li>
+              <li class="mb-2"><a href="#">Teaching</a></li>
+              <li class="mb-2"><a href="#">Q&amp;A</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Contact -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Contact</h5>
+            <ul class="list-unstyled footer-links mb-0">
+              <li class="icon-li mb-2">
+                <i class="bi bi-telephone"></i>
+                <a href="tel:+233543830824">+233 543830824</a>
+              </li>
+              <li class="icon-li mt-2">
+                <i class="bi bi-envelope"></i>
+                <a href="mailto:africad631@gmail.com">africad631@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Follow Us -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-heading">Follow Us</h5>
+            <div class="d-flex gap-2">
+              <a class="social-btn" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a class="social-btn" href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a class="social-btn" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a class="social-btn" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Divider -->
+        <hr class="my-4">
+        <!-- Bottom Bar -->
+        <div class="pt-3">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="mb-0 text-secondary">
+              © <span id="africadYear">2025</span> AfriCAD. All rights reserved.
+            </p>
+            <div class="bottom-links d-flex gap-3">
+              <a href="#" class="text-secondary text-decoration-none">Privacy Policy</a>
+              <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById('africadYear').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
